@@ -143,6 +143,8 @@
     <string name="wakeup_boost_summary">Wakeup Boost is similar to input boost but it occurs when screen is turned on.</string>
     <string name="hotplug_boost">Hotplug Boost</string>
     <string name="hotplug_boost_summary">Hotplug Boost is similar to input boost but it occurs when CPUs go online.</string>
+    <string name="iboost">CPU Input Boost</string>
+    <string name="iboost_summary">Boosts CPU frequency when screen is touched for a calculated time.</string>
 
     <!-- CPU Voltage -->
     <string name="global_offset">Global Offset</string>

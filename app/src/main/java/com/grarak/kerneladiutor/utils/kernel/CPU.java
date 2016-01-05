@@ -52,6 +52,18 @@ public class CPU implements Constants {
 
     private static String CPU_BOOST_ENABLE_FILE;
 
+    public static void activateIboost(boolean active, Context context) {
+        Control.runCommand(active ? "1" : "0", IBOOST, Control.CommandType.GENERIC, context);
+    }
+
+    public static boolean isIboostActive() {
+        return Utils.readFile(IBOOST).equals("1");
+    }
+
+    public static boolean hasIboost() {
+        return Utils.existFile(IBOOST);
+    }
+
     public static void activateCpuBoostWakeup(boolean active, Context context) {
         Control.runCommand(active ? "Y" : "N", CPU_BOOST_WAKEUP, Control.CommandType.GENERIC, context);
     }

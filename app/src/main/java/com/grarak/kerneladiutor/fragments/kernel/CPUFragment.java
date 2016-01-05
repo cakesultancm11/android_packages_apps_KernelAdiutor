@@ -136,6 +136,8 @@ public class CPUFragment extends ViewPagerFragment implements Constants {
         private SwitchCardView.DSwitchCard mCpuBoostWakeupCard;
         private SwitchCardView.DSwitchCard mCpuBoostHotplugCard;
 
+        private SwitchCardView.DSwitchCard mIboostCard;
+
         @Override
         public String getClassName() {
             return CPUFragment.class.getSimpleName();
@@ -181,6 +183,7 @@ public class CPUFragment extends ViewPagerFragment implements Constants {
             if (CPU.hasCpuBoost()) cpuBoostInit();
             if (othersDivider != null && (count == getCount() || getView(count) instanceof DDivider))
                 removeView(othersDivider);
+            if (CPU.hasIboost()) iboostInit();
         }
 
         private void usageInit() {
@@ -523,6 +526,16 @@ public class CPUFragment extends ViewPagerFragment implements Constants {
 
         }
 
+    private void iboostInit() {
+        mIboostCard = new SwitchCardView.DSwitchCard();
+        mIboostCard.setTitle(getString(R.string.iboost));
+        mIboostCard.setDescription(getString(R.string.iboost_summary));
+        mIboostCard.setChecked(CPU.isIboostActive());
+        mIboostCard.setOnDSwitchCardListener(this);
+
+        addView(mIboostCard);
+    }
+
         @Override
         public void onClick(View v) {
             for (int i = 0; i < mCoreCheckBox.length; i++)
@@ -624,6 +637,8 @@ public class CPUFragment extends ViewPagerFragment implements Constants {
                 CPU.activateCpuBoostWakeup(checked, getActivity());
             else if (dSwitchCard == mCpuBoostHotplugCard)
                 CPU.activateCpuBoostHotplug(checked, getActivity());
+            else if (dSwitchCard == mIboostCard)
+                CPU.activateIboost(checked, getActivity());
         }
 
         @Override
