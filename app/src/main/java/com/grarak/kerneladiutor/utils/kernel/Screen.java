@@ -18,6 +18,7 @@ package com.grarak.kerneladiutor.utils.kernel;
 
 import android.content.Context;
 
+import com.grarak.kerneladiutor.R;
 import com.grarak.kerneladiutor.utils.Constants;
 import com.grarak.kerneladiutor.utils.json.GammaProfiles;
 import com.grarak.kerneladiutor.utils.Utils;
@@ -662,6 +663,36 @@ public class Screen implements Constants {
                 return true;
             }
         return SCREEN_CALIBRATION != null;
+    }
+
+    public static void setUndervolt(int value, Context context) {
+        int newvalue = value * 50;
+        Control.runCommand(String.valueOf(newvalue), PANEL_CELOX_UV, Control.CommandType.GENERIC, context);
+    }
+
+    public static int getUndervoltValue() {
+        int newvalue = Utils.stringToInt(Utils.readFile(PANEL_CELOX_UV));
+        return newvalue / 50;
+    }
+
+    public static List<String> getUndervoltMenu(Context context) {
+        List<String> list = new ArrayList<>();
+        list.add(context.getString(R.string.zero));
+        list.add(context.getString(R.string.fifty));
+        list.add(context.getString(R.string.onehundred));
+        list.add(context.getString(R.string.onehundredfifty));
+        list.add(context.getString(R.string.twohundred));
+        list.add(context.getString(R.string.twohundredfifty));
+        list.add(context.getString(R.string.threehundred));
+        list.add(context.getString(R.string.threehundredfifty));
+        list.add(context.getString(R.string.fourhundred));
+        list.add(context.getString(R.string.fourhundredfifty));
+        list.add(context.getString(R.string.fivehundred));
+        return list;
+    }
+
+    public static boolean hasUndervolt() {
+        return Utils.existFile(PANEL_CELOX_UV);
     }
 
     public static boolean hasScreen() {

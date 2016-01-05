@@ -113,6 +113,8 @@ public class ScreenFragment extends RecyclerViewFragment implements SeekBarCardV
 
     private SwitchCardView.DSwitchCard mGloveModeCard;
 
+    private PopupCardView.DPopupCard mUndervoltCard;
+
     @Override
     public RecyclerView getRecyclerView() {
         mColorPalette = (ColorPalette) getParentView(R.layout.screen_fragment).findViewById(R.id.colorpalette);
@@ -136,6 +138,7 @@ public class ScreenFragment extends RecyclerViewFragment implements SeekBarCardV
         if (Screen.hasNegativeToggle()) negativeToggleInit();
         mdnieGlobalInit();
         if (Screen.hasGloveMode()) gloveModeInit();
+        if (Screen.hasUndervolt()) undervoltInit();
     }
 
     @Override
@@ -709,6 +712,16 @@ public class ScreenFragment extends RecyclerViewFragment implements SeekBarCardV
         addView(mGloveModeCard);
     }
 
+    private void undervoltInit() {
+        mUndervoltCard = new PopupCardView.DPopupCard(Screen.getUndervoltMenu(getActivity()));
+        mUndervoltCard.setTitle(getString(R.string.undervolt));
+        mUndervoltCard.setDescription(getString(R.string.undervolt_summary));
+        mUndervoltCard.setItem(Screen.getUndervoltValue());
+        mUndervoltCard.setOnDPopupCardListener(this);
+
+        addView(mUndervoltCard);
+    }
+
     @Override
     public void onChanged(SeekBarCardView.DSeekBarCard dSeekBarCard, int position) {
         if (dSeekBarCard == mColorCalibrationMinCard) {
@@ -863,6 +876,8 @@ public class ScreenFragment extends RecyclerViewFragment implements SeekBarCardV
         } else if (dPopupCard == mDsiPanelProfilesCard) {
             Screen.setDsiPanelProfile(position, Screen.getDsiPanelProfiles(getActivity()), getActivity());
             refreshDsiPanel();
+        } else if (dPopupCard == mUndervoltCard) {
+           Screen.setUndervolt(position, getActivity());
         }
     }
 

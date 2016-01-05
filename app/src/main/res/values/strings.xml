@@ -406,6 +406,19 @@
     <string name="master_sequence_summary">Enabling the master sequence will disable and ignore Samsung\'s profiles and scenarios, the ROM controls will be disabled.</string>
     <string name="glove_mode">Glove Mode</string>
     <string name="glove_mode_summary">Enabling this will let you use your phone even while wearing gloves.</string>
+    <string name="undervolt">Display Undervolting</string>
+    <string name="undervolt_summary">Undervolt your phone\'s display/panel.</string>
+    <string name="zero">0 mV</string>
+    <string name="fifty">50 mV</string>
+    <string name="onehundred">100 mV</string>
+    <string name="onehundredfifty">150 mV</string>
+    <string name="twohundred">200 mV</string>
+    <string name="twohundredfifty">250 mV</string>
+    <string name="threehundred">300 mV</string>
+    <string name="threehundredfifty">350 mV</string>
+    <string name="fourhundred">400 mV</string>
+    <string name="fourhundredfifty">450 mV</string>
+    <string name="fivehundred">500 mV</string>
 
     <!-- Wake Controls -->
     <string name="dt2w">DoubleTap2Wake</string>

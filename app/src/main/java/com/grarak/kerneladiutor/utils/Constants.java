@@ -501,11 +501,13 @@ public interface Constants {
     String MASTER_SEQUENCE = "/sys/class/misc/mdnie/sequence_intercept";
     String GLOVE_MODE = "/sys/devices/virtual/touchscreen/touchscreen_dev/mode";
 
+    String PANEL_CELOX_UV = "/sys/module/board_msm8x60_celox/parameters/panel_uv";
+
     String[][] SCREEN_ARRAY = {SCREEN_RGB_ARRAY, SCREEN_RGB_CTRL_ARRAY, SCREEN_KCAL_CTRL_NEW_ARRAY, K_GAMMA_ARRAY,
             GAMMACONTROL_ARRAY, DSI_PANEL_ARRAY, MIN_BRIGHTNESS_ARRAY,
             {SCREEN_KCAL_CTRL_MIN, SCREEN_HBM, LM3530_BRIGTHNESS_MODE, LM3530_MIN_BRIGHTNESS, LM3530_MAX_BRIGHTNESS,
                     LM3630_BACKLIGHT_DIMMER, LM3630_BACKLIGHT_DIMMER_THRESHOLD, LM3630_BACKLIGHT_DIMMER_OFFSET,
-                    NEGATIVE_TOGGLE, REGISTER_HOOK, MASTER_SEQUENCE, GLOVE_MODE}};
+                    NEGATIVE_TOGGLE, REGISTER_HOOK, MASTER_SEQUENCE, GLOVE_MODE, PANEL_CELOX_UV}};
 
     // Wake
     String WAKE = "/sys/android_touch";
