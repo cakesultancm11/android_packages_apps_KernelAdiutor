@@ -439,6 +439,8 @@
     <string name="s2s_summary">Suspend your device by swiping on the screen.</string>
     <string name="lenient">Sweep2Wake Leniency</string>
     <string name="lenient_summary">Only require 1st and 4th button to trigger Sweep2Wake.</string>
+    <string name="pocketdetect">Pocket Detection</string>
+    <string name="pocketdetect_summary">Disable wake features when device is in pocket (or if it is nighttime).</string>
 
     <!-- Sound -->
     <string name="sound_control">Sound Control</string>

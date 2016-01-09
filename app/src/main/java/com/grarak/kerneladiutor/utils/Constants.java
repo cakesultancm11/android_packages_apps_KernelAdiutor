@@ -531,6 +531,8 @@ public interface Constants {
     // S2W Leniency
     String LENIENT = WAKE + "/sweep2wake_sensitive";
 
+    String POCKET_DETECT = WAKE + "/pocket_detect";
+
     // Sound
     String SOUND_CONTROL_ENABLE = "/sys/module/snd_soc_wcd9320/parameters/enable_fs";
     String HEADPHONE_GAIN = "/sys/kernel/sound_control_3/gpl_headphone_gain";

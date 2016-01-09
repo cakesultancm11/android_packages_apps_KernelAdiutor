@@ -111,6 +111,18 @@ public class Wake implements Constants {
         return Utils.existFile(LENIENT);
     }
 
+    public static void activatePocketDetect(boolean active, Context context) {
+        Control.runCommand(active ? "1" : "0", POCKET_DETECT, Control.CommandType.GENERIC, context);
+    }
+
+    public static boolean isPocketDetectActive() {
+        return Utils.readFile(POCKET_DETECT).equals("1");
+    }
+
+    public static boolean hasPocketDetect() {
+        return Utils.existFile(POCKET_DETECT);
+    }
+
     public static boolean hasWake() {
         return Utils.existFile(WAKE);
     }

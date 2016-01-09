@@ -39,6 +39,7 @@ public class WakeFragment extends RecyclerViewFragment implements PopupCardView.
     private SwitchCardView.DSwitchCard mS2wCard;
     private SwitchCardView.DSwitchCard mS2sCard;
     private SwitchCardView.DSwitchCard mLenientCard;
+    private SwitchCardView.DSwitchCard mPocketDetectCard;
 
     @Override
     public void init(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class WakeFragment extends RecyclerViewFragment implements PopupCardView.
         if (Wake.hasS2w()) s2wInit();
         if (Wake.hasS2s()) s2sInit();
         if (Wake.hasLenient()) lenientInit();
+        if (Wake.hasPocketDetect()) pocketDetectInit();
     }
 
     private void dt2wInit() {
@@ -101,6 +103,16 @@ public class WakeFragment extends RecyclerViewFragment implements PopupCardView.
         addView(mLenientCard);
     }
 
+    private void pocketDetectInit() {
+        mPocketDetectCard = new SwitchCardView.DSwitchCard();
+        mPocketDetectCard.setTitle(getString(R.string.pocketdetect));
+        mPocketDetectCard.setDescription(getString(R.string.pocketdetect_summary));
+        mPocketDetectCard.setChecked(Wake.isPocketDetectActive());
+        mPocketDetectCard.setOnDSwitchCardListener(this);
+
+        addView(mPocketDetectCard);
+    }
+
     @Override
     public void onItemSelected(PopupCardView.DPopupCard dPopupCard, int position) {
         if (dPopupCard == mDt2wCard) Wake.setDt2w(position, getActivity());
@@ -116,5 +128,7 @@ public class WakeFragment extends RecyclerViewFragment implements PopupCardView.
             Wake.activateS2s(checked, getActivity());
         else if (dSwitchCard == mLenientCard)
             Wake.activateLenient(checked, getActivity());
+        else if (dSwitchCard == mPocketDetectCard)
+            Wake.activatePocketDetect(checked, getActivity());
         }
 }
