@@ -86,6 +86,8 @@ public class ScreenFragment extends RecyclerViewFragment implements SeekBarCardV
     private EditTextCardView.DEditTextCard mGammaControlSaturationCard;
     private PopupCardView.DPopupCard mGammaControlProfilesCard;
 
+    private SwitchCardView.DSwitchCard mMdpCoolerCard;
+
     private EditTextCardView.DEditTextCard mDsiPanelBlueNegativeCard;
     private EditTextCardView.DEditTextCard mDsiPanelBluePositiveCard;
     private EditTextCardView.DEditTextCard mDsiPanelGreenNegativeCard;
@@ -128,6 +130,7 @@ public class ScreenFragment extends RecyclerViewFragment implements SeekBarCardV
         super.init(savedInstanceState);
 
         screenColorInit();
+        if (Screen.hasMdpCooler()) mdpCoolerInit();
         if (Screen.hasKGamma()) kgammaInit();
         if (Screen.hasGammaControl()) gammacontrolInit();
         if (Screen.hasDsiPanel()) dsipanelInit();
@@ -250,6 +253,16 @@ public class ScreenFragment extends RecyclerViewFragment implements SeekBarCardV
 
             addView(mScreenHBMCard);
         }
+    }
+
+    private void mdpCoolerInit() {
+        mMdpCoolerCard = new SwitchCardView.DSwitchCard();
+        mMdpCoolerCard.setTitle(getString(R.string.mdpcooler));
+        mMdpCoolerCard.setDescription(getString(R.string.mdpcooler_summary));
+        mMdpCoolerCard.setChecked(Screen.isMdpCoolerActive());
+        mMdpCoolerCard.setOnDSwitchCardListener(this);
+
+        addView(mMdpCoolerCard);
     }
 
     private void kgammaInit() {
@@ -808,6 +821,8 @@ public class ScreenFragment extends RecyclerViewFragment implements SeekBarCardV
             Screen.activateMasterSequence(checked, getActivity());
         else if (dSwitchCard == mGloveModeCard)
             Screen.activateGloveMode(checked, getActivity());
+        else if (dSwitchCard == mMdpCoolerCard)
+            Screen.activateMdpCooler(checked, getActivity());
     }
 
     @Override

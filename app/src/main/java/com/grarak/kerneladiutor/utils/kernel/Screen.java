@@ -39,6 +39,18 @@ public class Screen implements Constants {
 
     private static String MIN_BRIGHTNESS;
 
+    public static void activateMdpCooler(boolean active, Context context) {
+        Control.runCommand(active ? "Y" : "N", MDP_COOLER, Control.CommandType.GENERIC, context);
+    }
+
+    public static boolean isMdpCoolerActive() {
+        return Utils.readFile(MDP_COOLER).equals("Y");
+    }
+
+    public static boolean hasMdpCooler() {
+        return Utils.existFile(MDP_COOLER);
+    }
+
     public static void activateGloveMode(boolean active, Context context) {
         Control.runCommand(active ? "glove" : "normal", GLOVE_MODE, Control.CommandType.GENERIC, context);
     }
