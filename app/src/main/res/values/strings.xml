@@ -427,10 +427,9 @@
     <!-- Wake Controls -->
     <string name="dt2w">DoubleTap2Wake</string>
     <string name="dt2w_summary">Wake up your device by double tapping the screen.</string>
-    <string name="dt2wmenu">Menu</string>
-    <string name="dt2whome">Home</string>
     <string name="dt2wback">Back</string>
-    <string name="dt2wsearch">Search</string>
+    <string name="dt2whome">Home</string>
+    <string name="dt2wrecents">Recents</string>
     <string name="dt2s">DoubleTap2Sleep</string>
     <string name="dt2s_summary">Suspend your device by double tapping the screen.</string>
     <string name="s2w">Sweep2Wake</string>

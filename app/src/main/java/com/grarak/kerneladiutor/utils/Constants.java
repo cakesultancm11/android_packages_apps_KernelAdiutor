@@ -514,7 +514,7 @@ public interface Constants {
                     NEGATIVE_TOGGLE, REGISTER_HOOK, MASTER_SEQUENCE, GLOVE_MODE, PANEL_CELOX_UV}};
 
     // Wake
-    String WAKE = "/sys/android_touch";
+    String WAKE = "/sys/android_key";
 
     // DT2W
     String DT2W = WAKE + "/doubletap2wake";
@@ -531,6 +531,7 @@ public interface Constants {
     // S2W Leniency
     String LENIENT = WAKE + "/sweep2wake_sensitive";
 
+    // Pocket Detection
     String POCKET_DETECT = WAKE + "/pocket_detect";
 
     // Sound

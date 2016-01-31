@@ -42,10 +42,9 @@ public class Wake implements Constants {
     public static List<String> getDt2wMenu(Context context) {
         List<String> list = new ArrayList<>();
         list.add(context.getString(R.string.disabled));
-        list.add(context.getString(R.string.dt2wmenu));
-        list.add(context.getString(R.string.dt2whome));
         list.add(context.getString(R.string.dt2wback));
-        list.add(context.getString(R.string.dt2wsearch));
+        list.add(context.getString(R.string.dt2whome));
+        list.add(context.getString(R.string.dt2wrecents));
         return list;
     }
 
@@ -64,10 +63,9 @@ public class Wake implements Constants {
     public static List<String> getDt2sMenu(Context context) {
         List<String> list = new ArrayList<>();
         list.add(context.getString(R.string.disabled));
-        list.add(context.getString(R.string.dt2wmenu));
-        list.add(context.getString(R.string.dt2whome));
         list.add(context.getString(R.string.dt2wback));
-        list.add(context.getString(R.string.dt2wsearch));
+        list.add(context.getString(R.string.dt2whome));
+        list.add(context.getString(R.string.dt2wrecents));
         return list;
     }
 
