@@ -51,6 +51,18 @@ public class Screen implements Constants {
         return Utils.existFile(MDP_COOLER);
     }
 
+    public static void activateBln(boolean active, Context context) {
+        Control.runCommand(active ? "1" : "0", BLN, Control.CommandType.GENERIC, context);
+    }
+
+    public static boolean isBlnActive() {
+        return Utils.readFile(BLN).equals("1");
+    }
+
+    public static boolean hasBln() {
+        return Utils.existFile(BLN);
+    }
+
     public static void activateGloveMode(boolean active, Context context) {
         Control.runCommand(active ? "glove" : "normal", GLOVE_MODE, Control.CommandType.GENERIC, context);
     }

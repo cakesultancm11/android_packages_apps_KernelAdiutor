@@ -410,6 +410,8 @@
     <string name="glove_mode_summary">Enabling this will let you use your phone even while wearing gloves.</string>
     <string name="mdpcooler">More Accurate Colors</string>
     <string name="mdpcooler_summary">Enabling this makes screen colors more accurate/close to RGB.</string>
+    <string name="bln">Button Light Notification</string>
+    <string name="bln_summary">Blink capacative touchkey lights when you get a notification.</string>
     <string name="undervolt">Display Undervolting</string>
     <string name="undervolt_summary">Undervolt your phone\'s display/panel.</string>
     <string name="zero">0 mV</string>
